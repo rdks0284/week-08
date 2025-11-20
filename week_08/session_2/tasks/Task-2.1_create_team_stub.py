@@ -13,12 +13,16 @@ class Team:
     def __init__(self):
         """Initialize an empty team."""
         # TODO: Initialize an empty list to store team members
+        self.members = []
 
     def add_pokemon(self, name):
         """Add a Pokémon to the team."""
         # TODO: Check if the team already has 6 Pokémon
+        if len(self.members) == 6:
+            print("Team is full!")
             # TODO: If yes, print a message indicating the team is full
 
+        else:
         # TODO: Check if the Pokémon is already in the team (case-insensitive)
             # TODO: If yes, print a message indicating duplication
 

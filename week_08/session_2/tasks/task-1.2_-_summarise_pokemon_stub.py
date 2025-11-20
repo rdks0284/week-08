@@ -10,24 +10,26 @@ import httpx
 def summarise_pokemon(name):
     """Fetch and summarise Pokémon details."""
     # TODO: Construct the URL using the Pokémon name
-    
+    pokemon_URL = f"https://pokeapi.co/api/v2/pokemon/{name.lower()}"
 
     # TODO: Make a GET request to the URL
-    
+    response = httpx.get(pokemon_URL)
 
+    if response.status_code == 200:
     # TODO: Check if the response is successful (status_code == 200)
     
         # TODO: Parse the JSON response
-        
+        data = response.json()
 
         # TODO: Extract the Pokémon's name
-        
+        # print(data)
+        print(data["name"])
 
         # TODO: Extract the Pokémon's types
-        
+        print(data["types"])
 
         # TODO: Extract the Pokémon's base stats
-        
+        print(data["stats"])
 
         # TODO: Extract the Pokémon's image URL
         
@@ -44,7 +46,7 @@ def summarise_pokemon(name):
     #     print(f"Error: Pokémon '{name}' not found!")
 
 # Example usage
-# summarise_pokemon("squirtle")
+summarise_pokemon("squirtle")
 
 """
 Hints:
